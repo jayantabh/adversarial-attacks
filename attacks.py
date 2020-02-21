@@ -85,7 +85,7 @@ def IterativeFGSM(net, x, eps, num_iters=-1, alpha=1, do_stop_max_pert=False):
         if do_stop_max_pert:
             max_pert = np.max(np.abs(adv_perturbation))
             if max_pert >= eps: # Due to floating point inaccuracies, need >= instead of just ==
-                print "Stopping after {} iterations: Max norm reached".format(i+1)
+                print("Stopping after {} iterations: Max norm reached".format(i+1))
                 break
 
     return adversarial_x, adv_perturbation
@@ -136,7 +136,7 @@ def IterativeFGSMLeastLikely(net, x, eps, num_iters=-1, alpha=1, do_stop_max_per
         if do_stop_max_pert:
             max_pert = np.max(np.abs(adv_perturbation))
             if max_pert >= eps: # Due to floating point inaccuracies, need >= instead of just ==
-                print "Stopping after {} iterations: Max norm reached".format(i+1)
+                print("Stopping after {} iterations: Max norm reached".format(i+1))
                 break
 
     return adversarial_x, adv_perturbation

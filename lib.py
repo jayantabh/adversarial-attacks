@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from PIL import Image as PILImage
 import scipy.io as sio
+import errno
 
 import dilated
 
@@ -21,8 +22,8 @@ def CreateDir(dirname):
 
     try:
         os.makedirs(dirname)
-    except OSError, e:
-        if e.errno != os.errno.EEXIST:
+    except OSError as e:
+        if e.errno != errno.EEXIST:
             raise
 
 

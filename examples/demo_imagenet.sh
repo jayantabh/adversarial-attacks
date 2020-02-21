@@ -9,7 +9,7 @@ pad_size=227
 eps=4
 attack_method=iterative_fgsm
 
-image=data/cat.jpg
+image=data/dog.jpg
 out_dir=output
 dataset=imagenet
 
