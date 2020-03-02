@@ -9,10 +9,10 @@ pad_size=513
 eps=8
 attack_method=iterative_fgsm_ll
 
-image=data/2007_000042.jpg
-out_dir=output
+image_file=data/voc_val_jpg.txt
+out_dir=output/voc_val
 
 python main.py --gpu ${gpu} --model_def ${model_def} \
---model_weights ${model_weights} --image ${image} --pad_size ${pad_size} \
+--model_weights ${model_weights} --image_file ${image_file} --pad_size ${pad_size} \
 --eps ${eps} --is_seg --out_dir ${out_dir} --attack_method ${attack_method} \
 --model_name ${model_name} --mean ${mean}

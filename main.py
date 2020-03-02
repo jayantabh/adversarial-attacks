@@ -69,10 +69,10 @@ def Predict(net, x, dummy_label=None, label_names=None, do_top_5=False, is_seg=F
         scores = net.blobs['output'].data[0]
         indices = np.argsort( -scores )
         indices = indices[0:5]
-        print indices
+        print(indices)
         for index in indices:
-            print "{:60} {:0.3f}".format(label_names[index],scores[index])
-        print ""
+            print("{:60} {:0.3f}".format(label_names[index],scores[index]))
+        print("")
 
     return net_prediction, confidence, pred_label
 
@@ -239,13 +239,13 @@ def main_image(args):
     image = caffe.io.load_image(args.image)
     image = transformer.preprocess('data', image)
 
-    print "Prediction of original image"
+    print("Prediction of original image")
     Predict(net, image, do_top_5=True, label_names=args.label_names)
 
     adv_func_args = GetAdvFuncArgs(args, net, image)
     adversarial_image_data, added_noise_data = adv_attacks[args.attack_method](**adv_func_args)
 
-    print "Prediction of adversarial image"
+    print("Prediction of adversarial image")
     Predict(net, adversarial_image_data, do_top_5=True, label_names=args.label_names)
 
     adversarial_image = np.squeeze(adversarial_image_data[0,:,:,:]) # CxHxW
@@ -260,9 +260,9 @@ def main_batch(args):
     """Adversarial examples for semantic segmentation models evaluated over all images in a list file."""
 
     if CheckAllDone(args):
-        print "Processing", args.image_file
-        print "Arguements", sys.argv
-        print "Entire experiment is already done. Quitting"
+        print("Processing", args.image_file)
+        print("Arguements", sys.argv)
+        print("Entire experiment is already done. Quitting")
         return
 
     if args.gpu >= 0:
@@ -284,8 +284,8 @@ def main_batch(args):
 
     ## Create the network and start the actual experiment
     net = caffe.Net(args.model_def, args.model_weights, caffe.TEST)
-    print "Running batch images on", args.image_file
-    print "Arguments", sys.argv
+    print("Running batch images on", args.image_file)
+    print("Arguments", sys.argv)
 
     image_names = open(args.image_file, 'r').readlines()
     image_names = [x.strip() for x in image_names]
@@ -296,7 +296,7 @@ def main_batch(args):
 
         if i % args.iter_print == 0:
             time_str = str(datetime.datetime.now())
-            print "[{}] Image {}: {}".format(time_str, i, im_name)
+            print("[{}] Image {}: {}".format(time_str, i, im_name))
             sys.stdout.flush()
 
 
