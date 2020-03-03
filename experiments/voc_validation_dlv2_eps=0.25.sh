@@ -1,4 +1,6 @@
-# wget -N http://www.robots.ox.ac.uk/~aarnab/projects/cvpr_2018/models/fcn8_voc.caffemodel -P models/
+wget -N http://liangchiehchen.com/projects/released/deeplab_aspp_vgg16/prototxt_and_model.zip -P models/
+
+unzip models/prototxt_and_model.zip
 
 gpu=0
 model_def=models/deeplab_v2_vgg16.prototxt
