@@ -4,7 +4,7 @@ unzip models/prototxt_and_model.zip
 
 gpu=0
 model_def=models/deeplab_v2_vgg16.prototxt
-model_weights=models/deeplab_v2_vgg16.caffemodel
+model_weights=models/train_iter_20000.caffemodel
 model_name=deeplab_vgg16
 mean='103.939,116.779,123.68' # BGR order
 pad_size=513
