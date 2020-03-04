@@ -1,15 +1,13 @@
-wget -N http://liangchiehchen.com/projects/released/deeplab_aspp_vgg16/prototxt_and_model.zip -P models/
-
-unzip models/prototxt_and_model.zip -d models/
+wget -N http://www.robots.ox.ac.uk/~aarnab/projects/cvpr_2018/models/fcn8_voc.caffemodel -P models/
 
 gpu=0
-model_def=models/deeplab_v2_vgg16.prototxt
-model_weights=models/train_iter_20000.caffemodel
-model_name=deeplab_vgg16
+model_def=models/fcn8_voc.prototxt
+model_weights=models/fcn8_voc.caffemodel
+model_name=fcn8
 mean='103.939,116.779,123.68' # BGR order
 pad_size=513
-eps=0.25
-attack_method=iterative_fgsm_ll
+eps=16
+attack_method=targetted_fgsm
 
 image_file=data/voc_val_jpg.txt
 out_dir=output/voc_val
