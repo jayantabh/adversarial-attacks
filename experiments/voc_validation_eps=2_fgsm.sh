@@ -7,7 +7,7 @@ model_name=fcn8
 mean='103.939,116.779,123.68' # BGR order
 pad_size=513
 eps=2
-attack_method=targetted_fgsm
+attack_method=fgsm
 
 image_file=data/voc_val_jpg.txt
 out_dir=output/voc_val
