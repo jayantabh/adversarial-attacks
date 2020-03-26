@@ -472,8 +472,38 @@ layer {
   }
 }
 layer {
+  name: "ct_upsample"
+  type: "Deconvolution"
+  bottom: "ct_final"
+  top: "ct_upsample"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+  }
+}
+layer {
   name: "prob"
   type: "Softmax"
   bottom: "ct_final"
-  top: "prob"
+  top: "output"
+}
+
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ct_upsample"
+  bottom: "label"
+  top: "loss"
+  loss_param {
+    ignore_label: 255
+    normalize: false
+  }
 }
