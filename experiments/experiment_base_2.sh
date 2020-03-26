@@ -1,8 +1,8 @@
-wget -N http://dl.yf.io/dilation/models/dilation10_cityscapes.caffemodel -P models/
+wget -N http://dl.yf.io/dilation/models/dilation8_pascal_voc.caffemodel -P models/
 
 gpu=0
-model_def=models/dilation10_cityscapes.prototxt
-model_weights=models/dilation10_cityscapes.caffemodel
+model_def=models/dilation8_pascal_voc.prototxt
+model_weights=models/dilation8_pascal_voc.caffemodel
 model_name=dilated_context
 mean='103.939,116.779,123.68' # BGR order
 pad_size=513
