@@ -484,15 +484,15 @@ layer {
     num_output: 21
     bias_term: false
     pad: 4
-    kernel_size: 16
+    kernel_size: 28
     group: 21
-    stride: 8
+    stride: 29
   }
 }
 layer {
   name: "prob"
   type: "Softmax"
-  bottom: "ct_final"
+  bottom: "ct_upsample"
   top: "output"
 }
 
