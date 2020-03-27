@@ -181,12 +181,13 @@ def main_seg(args, net=None, is_debug=False):
     image, im_height, im_width, orig_image = lib.PreprocessImage(
         args.image, args.pad_size, pad_value=args.pad_value, resize_dims=args.resize_dims, args=args)
 
+    print('Image Shape:', image.shape)
     orig_pred, orig_conf = PredictWrapper(
         net, image, orig_image, dummy_label=None, is_seg=True, args=args)
     save_name = os.path.join(args.out_dir,
                              "{}_original_pred_{}.png".format(image_name, model_name))
     lib.SavePredictionIm(orig_pred, colour_map, save_name)
-
+    print('Orig Pred:', orig_pred.shape)
     adv_func_args = GetAdvFuncArgs(args, net, image)
     adversarial_image_data, added_noise_data = adv_attacks[args.attack_method](**adv_func_args)
 
@@ -280,7 +281,7 @@ def main_batch(args):
     f_cmdline.close()
 
     ## Copy the model prototxt to the folder
-    shutil.copyfile(args.model_def, os.path.join(args.out_dir, model_name + '.prototxt' ) )
+    shutil.copyfile(args.model_def, os.path.join(args.out_dir, model_name + '.prototxt'))
 
     ## Create the network and start the actual experiment
     net = caffe.Net(args.model_def, args.model_weights, caffe.TEST)

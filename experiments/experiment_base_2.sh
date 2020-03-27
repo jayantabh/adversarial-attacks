@@ -15,4 +15,4 @@ out_dir=/content/adversarial-attacks/output/voc_val
 python main.py --gpu ${gpu} --model_def ${model_def} \
 --model_weights ${model_weights} --image_file ${image_file} --pad_size ${pad_size} \
 --eps ${eps} --is_seg --save_scores --out_dir ${out_dir} --attack_method ${attack_method} \
---model_name ${model_name} --mean ${mean}
+--model_name ${model_name} --mean ${mean} --is_dilated

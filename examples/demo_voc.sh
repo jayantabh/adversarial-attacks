@@ -9,7 +9,7 @@ pad_size=513
 eps=8
 attack_method=iterative_fgsm_ll
 
-image=data/2007_000042.jpg
+image=data/dog.jpg
 out_dir=output
 
 python main.py --gpu ${gpu} --model_def ${model_def} \
