@@ -6,7 +6,7 @@ model_weights=models/fcn8_voc.caffemodel
 model_name=fcn8
 mean='103.939,116.779,123.68' # BGR order
 pad_size=513
-eps=2
+eps=1
 attack_method=iterative_fgsm_ll
 
 image_file=/content/adversarial-attacks/data/voc_val_jpg.txt

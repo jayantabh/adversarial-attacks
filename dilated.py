@@ -46,6 +46,7 @@ def PreprocessImage(name, args):
     input_image = cv2.copyMakeBorder(image, label_margin, label_margin,
                                      label_margin, label_margin, cv2.BORDER_REFLECT_101)
     input_size = [args.pad_size[1], args.pad_size[0]] # Order is H x W
+
     margin = [0, input_size[0] - input_image.shape[0],
               0, input_size[1] - input_image.shape[1]]
 
